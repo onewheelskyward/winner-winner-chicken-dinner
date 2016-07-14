@@ -1,5 +1,6 @@
 yao = {}
 run_array = []
+laps = {1 => [], 2 => [], 3 => [], 4 => [], 5 => []}
 
 max_occurrence = 1
 per_lap_count = 0
@@ -11,6 +12,7 @@ File.open('2016-stxc-kids-cat2.txt').each do |line|
   end
   yao[num] += 1
   per_lap_count += 1
+  laps[yao[num]].push num
 
   if yao[num] > max_occurrence
     max_occurrence += 1
@@ -22,3 +24,8 @@ end
 
 puts yao.inspect
 puts run_array.join("\n")
+
+laps.each do |k, lap|
+  puts "Lap #{k}, #{lap.count} riders"
+  puts lap.join "\n"
+end
