@@ -1,0 +1,19 @@
+{
+  "name": "winner-winner-chicken-dinner",
+  "version": "0.0.0",
+  "description": "Short Track Kids Race Scoring Engine",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/onewheelskyward/winner-winner-chicken-dinner.git"
+  },
+  "author": "Andrew Kreps",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/onewheelskyward/winner-winner-chicken-dinner/issues"
+  },
+  "homepage": "https://github.com/onewheelskyward/winner-winner-chicken-dinner#readme"
+}
