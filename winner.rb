@@ -5,7 +5,7 @@ DB = Sequel.connect('postgres://root:b01762cfbe4ab3de@portlandracing.c6aanljryr7
 
 racer_laps_by_plate_number = {}
 run_array = []
-laps = {1 => [], 2 => [], 3 => [], 4 => [], 5 => [], 6 => [], 7 => [], 8 => [], 9 => [], 10 => []}
+laps = {1 => [], 2 => [], 3 => [], 4 => [], 5 => [], 6 => [], 7 => [], 8 => [], 9 => [], 10 => [], 11 => [], 12 => [], 13 => [], 14 => [], 15 => []}
 
 max_occurrence = 1
 per_lap_count = 0
@@ -41,12 +41,16 @@ printed = {}
 
 laps.keys.sort.reverse.each do |key|
   # puts lap.join "\n"
-  puts "Lap #{key}, #{laps[key].count} riders"
+  # puts "Lap #{key}, #{laps[key].count} riders"
   laps[key].each do |rider_num|
     query = "SELECT first_name, last_name, plate_number, racing_age FROM racers where plate_number = #{rider_num} and category = #{ARGV[1]}"
+    name = ''
+    age = ''
     DB.fetch(query) do |row|
-      puts "#{rider_num},#{row[:first_name]} #{row[:last_name][0]},#{row[:racing_age]}" unless printed[rider_num]
+      name = "#{row[:first_name]} #{row[:last_name][0]}"
+      age = row[:racing_age]
     end
+    puts "#{rider_num},#{name},#{age},#{key}" unless printed[rider_num]
     printed[rider_num] = true
   end
 end
